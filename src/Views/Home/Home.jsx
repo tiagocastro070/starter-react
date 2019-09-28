@@ -1,35 +1,37 @@
-/* eslint-disable jsx-a11y/alt-text */
-/* eslint-disable no-useless-constructor */
 import React from 'react';
 import TinySlider from 'tiny-slider-react';
 
 class Home extends React.Component {
-
-	constructor(props) {
-		super(props);
-	}
-
 	buildSlides() {
-		const imgs = ['https://via.placeholder.com/300x101', 'https://via.placeholder.com/300x102', 'https://via.placeholder.com/300x103', 'https://via.placeholder.com/300x104', 'https://via.placeholder.com/300x105']
+		const imgs = ['https://via.placeholder.com/600x301', 'https://via.placeholder.com/600x302', 'https://via.placeholder.com/600x303', 'https://via.placeholder.com/600x304', 'https://via.placeholder.com/600x305']
 
 		return imgs.map((el, index) => (
-			<div key={index} style={{ position: "relative" }}>
-				<img
-					className={`tns-lazy-img`}
-					src='https://via.placeholder.com/10x10'
-					data-src={el}
-					alt="" />
-				Esta é a imagem número {index + 1}
+			<div key={index} className="tns-item" style={{ position: "relative" }}>
+				<div className="row">
+					<div className="col-8">
+						<img
+							className={`tns-lazy-img`}
+							src='https://via.placeholder.com/10x10'
+							data-src={el}
+							alt=""
+						/>
+					</div>
+					<div className="col-4 display-4">This is image number {index + 1}</div>
+				</div>
 			</div>
 		))
 	}
 	
 	render() {
 		const settings = {
-			items: 2,
+			items: 1,
 			lazyload: true,
 			nav: true,
-			dots: true,
+			navPosition: 'bottom',
+			navAsThumbnails: true,
+			controlsPosition: 'bottom',
+			controlsText: ["prev", "next"],
+			arrowKeys: true,
 			mouseDrag: true
 		};
 		

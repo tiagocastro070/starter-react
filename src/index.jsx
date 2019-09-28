@@ -7,7 +7,7 @@ import createStore from './store.js';
 
 import Header from './Components/Header/Header.jsx';
 import Footer from './Components/Footer/Footer.jsx';
-import App from './App.jsx';
+import Routes from './Routes.jsx';
 
 // import generic CSS
 import './styles/app.scss';
@@ -23,10 +23,11 @@ const store = createStore();
 
 ReactDOM.render(
 	<div>
+		{ console.log( window.location.pathname.split('/')[1] ) }
 		<BrowserRouter>
 			<Context.Provider value={store}>
 				<Header />
-				<App />
+				<Routes />
 				<Footer />
 			</Context.Provider>
 		</BrowserRouter>
